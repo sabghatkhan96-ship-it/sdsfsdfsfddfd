@@ -1,0 +1,19 @@
+# System & IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.log
+
+# Dependencies
+node_modules/
+.vercel/
+
+# Android & Gradle
+android/.gradle/
+android/app/build/
+android/build/
+*.apk
+*.aab
+local.properties

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Biometric Authentication permissions -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    
+    <!-- Haptic feedback on copy and authentication -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    
+    <!-- Optional notification when clipboard credentials are auto-cleared -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!--
+      CRITICAL PRIVACY GUARANTEE:
+      android.permission.INTERNET IS INTENTIONALLY OMITTED.
+      This ensures SecureVault is mathematically and OS-isolated from any network,
+      preventing any extraction or transmission of user passwords.
+    -->
+
+    <application
+        android:name=".SecureVaultApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/ic_vault_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_vault_logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SecureVault">
+
+        <!-- Main Application Activity -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.SecureVault">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Biometric Authentication Dialog Activity for Autofill Service -->
+        <activity
+            android:name=".service.AutofillAuthActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SecureVault.AutofillAuth"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:launchMode="singleInstance" />
+
+        <!--
+            Official Android Autofill Service.
+            Allows SecureVault to securely autofill credentials into other apps and web views.
+            Protected by android.permission.BIND_AUTOFILL_SERVICE so only the Android OS can bind.
+        -->
+        <service
+            android:name=".service.VaultAutofillService"
+            android:exported="true"
+            android:label="@string/autofill_service_label"
+            android:permission="android.permission.BIND_AUTOFILL_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.autofill.AutofillService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.autofill"
+                android:resource="@xml/autofill_service_config" />
+        </service>
+
+    </application>
+
+</manifest>

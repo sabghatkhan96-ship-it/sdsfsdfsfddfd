@@ -1,0 +1,21 @@
+{
+  "name": "securevault-usa-mobile-hub",
+  "version": "1.0.0",
+  "description": "Ultra-Secure Password Vault & USA Mobile Profile Automation Hub",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "password-manager",
+    "autofill",
+    "usa-mobile-profiles",
+    "cloud-phone",
+    "residential-proxy",
+    "aes-256-gcm",
+    "vercel"
+  ],
+  "author": "SecureVault",
+  "license": "MIT"
+}
