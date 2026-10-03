@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SecureVault - Authentic Mobile Device Automation Hub & Zero-Knowledge Client-Side Encrypted Password Manager.">
+  <meta name="theme-color" content="#090d16">
+  <title>SecureVault - Mobile Hub &amp; Password Vault</title>
+  
+  <!-- Modern Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Application Stylesheet -->
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+  <!-- Application Navigation Header -->
+  <header class="app-header">
+    <div class="brand-wrapper">
+      <div class="brand-logo-icon">🛡️</div>
+      <div class="brand-text">
+        <span class="brand-title">SecureVault</span>
+        <span class="brand-badge">Mobile Automation &amp; Vault</span>
+      </div>
+    </div>
+
+    <!-- Center Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-btn active" data-route="simulator">
+        <span>📱</span> Simulator
+      </button>
+      <button class="nav-btn" data-route="devices">
+        <span>📲</span> Device Profiles
+      </button>
+      <button class="nav-btn" data-route="vault">
+        <span>🔐</span> Password Vault
+      </button>
+      <button class="nav-btn" data-route="generator">
+        <span>⚡</span> Generator
+      </button>
+      <button class="nav-btn" data-route="audit">
+        <span>🛡️</span> Security Audit
+      </button>
+      <button class="nav-btn" data-route="android">
+        <span>🤖</span> Android App
+      </button>
+    </nav>
+
+    <!-- Right Header Status Pill -->
+    <div class="header-status-indicator">
+      <span class="status-dot green pulse"></span>
+      <span>AES-256 Vault Active</span>
+    </div>
+  </header>
+
+  <!-- Main Application Body -->
+  <main class="main-wrapper">
+
+    <!-- 1. Real Smartphone Simulator Pane -->
+    <section id="pane-simulator" class="tab-pane active">
+      <div class="sim-page-layout">
+        
+        <!-- Left: Interactive Smartphone Chassis -->
+        <div class="sim-device-chassis">
+          <!-- Physical Hardware Buttons -->
+          <div class="sim-side-power" title="Power Button" onclick="window.deviceSimulator.togglePower()"></div>
+          <div class="sim-side-vol-up" title="Volume Up"></div>
+          <div class="sim-side-vol-down" title="Volume Down"></div>
+
+          <!-- Smartphone Screen Display -->
+          <div class="sim-screen-body" id="sim-screen-body">
+            <!-- Front Camera Dynamic Island -->
+            <div class="sim-notch">
+              <div class="sim-camera-lens"></div>
+            </div>
+
+            <!-- Top Status Bar -->
+            <div class="sim-status-bar">
+              <span id="sim-clock">12:00</span>
+              <div class="status-bar-icons">
+                <span>📶 5G</span>
+                <span>📡</span>
+                <span>🔋 100%</span>
+              </div>
+            </div>
+
+            <!-- Active App / Home Screen Container -->
+            <div class="sim-app-container" id="sim-app-container">
+              <!-- Dynamically populated by DeviceSimulator -->
+            </div>
+
+            <!-- Home Gesture Indicator -->
+            <div class="sim-home-indicator" title="Home Bar" onclick="window.deviceSimulator.goHome()"></div>
+          </div>
+        </div>
+
+        <!-- Right: Real-time Device Telemetry & Control Center -->
+        <div class="sim-side-panel">
+          <div class="sim-info-card glass">
+            <div class="sim-device-header">
+              <div>
+                <h1 class="sim-device-name" id="sim-device-title">Google Pixel 8 Pro</h1>
+                <p class="sim-device-chip" id="sim-device-chip">Android 14 • Google Tensor G3</p>
+              </div>
+              <span class="badge-chip green" id="sim-carrier-badge">Verizon 5G</span>
+            </div>
+
+            <div class="sim-badges-row">
+              <span class="badge-chip cyan" id="sim-memory-badge">12 GB RAM • 256 GB</span>
+              <span class="badge-chip yellow">Zero-Knowledge Encrypted</span>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-glass); padding-top: 18px; margin-top: 8px;">
+              <h3 style="font-size: 14px; margin-bottom: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">
+                Simulator Controls
+              </h3>
+              <div class="sim-actions-grid">
+                <button class="btn btn-secondary" onclick="window.deviceSimulator.goHome()">
+                  <span>🏠</span> Home Screen
+                </button>
+                <button class="btn btn-secondary" onclick="window.deviceSimulator.togglePower()">
+                  <span>⚡</span> Power Screen
+                </button>
+                <button class="btn btn-secondary" onclick="window.deviceSimulator.refreshScreen()">
+                  <span>🔄</span> Refresh Screen
+                </button>
+                <button class="btn btn-secondary" onclick="window.deviceSimulator.pasteClipboard()">
+                  <span>📋</span> Paste Clipboard
+                </button>
+                <button class="btn btn-primary" onclick="window.appRouter.navigate('devices')">
+                  <span>📱</span> Switch Device Profile
+                </button>
+                <button class="btn btn-primary" onclick="window.appRouter.navigate('vault')">
+                  <span>🔐</span> Open Password Vault
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Cards -->
+          <div class="glass" style="padding: 20px;">
+            <h3 style="font-size: 15px; margin-bottom: 8px; font-weight: 700;">Zero Third-Party Advertising Gimmicks</h3>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+              This simulator runs authentic smartphone specifications (Pixel 8 Pro, Galaxy S24 Ultra, iPhone 15 Pro, Xiaomi 14 Ultra). It contains standard system utilities (Secure Notes, Web Browser, Password Vault, Hardware Specs, and Network Proxy telemetry) designed for clean productivity and workflow management.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. Authentic Device Profiles Pane -->
+    <section id="pane-devices" class="tab-pane">
+      <div class="view-header">
+        <div>
+          <h1 style="font-size: 24px; font-weight: 800;">Authentic Mobile Device Profiles</h1>
+          <p style="color: var(--text-secondary); font-size: 14px; margin-top: 4px;">
+            Manage and run authentic mobile devices with real chipsets, screen resolutions, and carrier proxies.
+          </p>
+        </div>
+        <button class="btn btn-primary" onclick="window.appRouter.createRandomDevice()">
+          <span>+</span> Create Random Device
+        </button>
+      </div>
+
+      <div class="devices-grid" id="devices-grid">
+        <!-- Rendered by window.appRouter.renderDevicesView() -->
+      </div>
+    </section>
+
+    <!-- 3. Zero-Knowledge Password Vault Pane -->
+    <section id="pane-vault" class="tab-pane">
+      <div id="vault-content-container">
+        <!-- Rendered by window.appRouter.renderVaultView() -->
+      </div>
+    </section>
+
+    <!-- 4. Password Generator Pane -->
+    <section id="pane-generator" class="tab-pane">
+      <div class="generator-card glass">
+        <div>
+          <h1 style="font-size: 22px; font-weight: 800; text-align: center;">Cryptographic Password Generator</h1>
+          <p style="color: var(--text-secondary); font-size: 13px; text-align: center; margin-top: 4px;">
+            Generate high-entropy, cryptographically secure passwords powered by Web Crypto CSPRNG.
+          </p>
+        </div>
+
+        <div class="pwd-display-wrapper">
+          <input type="text" id="gen-output-val" class="form-input pwd-output" readonly>
+          <div style="position: absolute; right: 8px; display: flex; gap: 4px;">
+            <button class="btn btn-secondary btn-sm" onclick="window.appRouter.generateNewPassword()" title="Generate New">🔄</button>
+            <button class="btn btn-primary btn-sm" onclick="window.appRouter.copyGeneratedPassword()" title="Copy to Clipboard">📋 Copy</button>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 13px; color: var(--text-secondary);">Strength &amp; Entropy:</span>
+          <span id="gen-strength-badge" style="font-size: 13px; font-weight: 700; color: var(--status-green);">Strong (108 bits entropy)</span>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <label style="font-size: 13px; font-weight: 600;">Length</label>
+            <span id="gen-len-val" style="font-size: 14px; font-weight: 700; color: var(--accent-cyan);">18</span>
+          </div>
+          <input type="range" id="gen-len-slider" min="8" max="64" value="18" style="width: 100%; accent-color: var(--primary);">
+        </div>
+
+        <div class="options-grid">
+          <label class="checkbox-label">
+            <input type="checkbox" id="gen-upper" checked style="accent-color: var(--primary);"> Uppercase (A-Z)
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="gen-lower" checked style="accent-color: var(--primary);"> Lowercase (a-z)
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="gen-digits" checked style="accent-color: var(--primary);"> Numbers (0-9)
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="gen-symbols" checked style="accent-color: var(--primary);"> Special Symbols (!@#$%)
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Security Audit Pane -->
+    <section id="pane-audit" class="tab-pane">
+      <div id="audit-content-container">
+        <!-- Rendered by window.appRouter.renderAuditView() -->
+      </div>
+    </section>
+
+    <!-- 6. Native Android App Architecture Pane -->
+    <section id="pane-android" class="tab-pane">
+      <div class="glass" style="padding: 32px; max-width: 900px; margin: 0 auto;">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 20px;">
+          <div style="font-size: 40px;">🤖</div>
+          <div>
+            <h1 style="font-size: 24px; font-weight: 800;">Native Android Application (Kotlin)</h1>
+            <p style="color: var(--text-secondary); font-size: 14px;">
+              The native Android implementation is located in the <code style="color: var(--accent-cyan); background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px;">android/</code> directory of this repository.
+            </p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 24px 0;">
+          <div class="glass" style="padding: 16px;">
+            <h3 style="font-size: 15px; margin-bottom: 6px; color: var(--accent-cyan);">🔐 AndroidKeyStore AES-256-GCM</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Hardware-backed MasterKey generation using StrongBox Keymaster. Memory cleared with CharArray zeroing.</p>
+          </div>
+          <div class="glass" style="padding: 16px;">
+            <h3 style="font-size: 15px; margin-bottom: 6px; color: var(--accent-emerald);">⚡ Official AutofillService</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Direct system autofill integration (<code style="font-size: 11px;">VaultAutofillService</code>) with biometric authentication prompt before filling credentials.</p>
+          </div>
+          <div class="glass" style="padding: 16px;">
+            <h3 style="font-size: 15px; margin-bottom: 6px; color: var(--accent-amber);">👆 BiometricPrompt (Face &amp; Fingerprint)</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Class 3 Biometric authentication with PIN fallback for secure unlock on device boot.</p>
+          </div>
+          <div class="glass" style="padding: 16px;">
+            <h3 style="font-size: 15px; margin-bottom: 6px; color: var(--accent-rose);">🗄️ Room Database with Encrypted Blobs</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">All usernames, passwords, notes, and metadata are encrypted before hitting SQLite storage.</p>
+          </div>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.3); padding: 16px; border-radius: var(--radius-sm); font-size: 13px; color: var(--text-secondary);">
+          <strong>Vercel Auto-Deployment Note:</strong> Vercel builds and hosts this web application hub (<code style="color: var(--text-main);">index.html</code>, <code style="color: var(--text-main);">js/</code>, <code style="color: var(--text-main);">css/</code>). The native Android Kotlin codebase is cleanly preserved in <code style="color: var(--text-main);">android/</code> for Android Studio / Gradle builds.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal: Add New Credential -->
+  <div class="modal-overlay" id="add-cred-modal">
+    <div class="modal-dialog glass">
+      <h2 style="font-size: 18px; font-weight: 700;">Add New Encrypted Login</h2>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Credentials will be encrypted with AES-256-GCM before saving.</p>
+
+      <form class="modal-form" onsubmit="window.appRouter.saveNewCredential(event)">
+        <div class="form-group">
+          <label for="cred-title">Title / Account Name *</label>
+          <input type="text" id="cred-title" class="form-input" placeholder="e.g. GitHub, Google, AWS" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cred-domain">Website / App Package</label>
+          <input type="text" id="cred-domain" class="form-input" placeholder="e.g. github.com or com.github.android">
+        </div>
+
+        <div class="form-group">
+          <label for="cred-username">Username / Email *</label>
+          <input type="text" id="cred-username" class="form-input" placeholder="e.g. user@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cred-password">Password *</label>
+          <input type="password" id="cred-password" class="form-input" placeholder="Enter password or use generator" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cred-category">Category</label>
+          <select id="cred-category" class="form-input">
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="Finance">Finance</option>
+            <option value="Cloud">Cloud Services</option>
+          </select>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="window.appRouter.closeModals()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Encrypt &amp; Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Pill -->
+  <div id="app-toast" class="toast"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/crypto.js"></script>
+  <script src="js/devices.js"></script>
+  <script src="js/vault.js"></script>
+  <script src="js/simulator.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

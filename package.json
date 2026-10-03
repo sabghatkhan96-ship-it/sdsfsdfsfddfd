@@ -1,0 +1,20 @@
+{
+  "name": "securevault-mobile-manager",
+  "version": "1.0.0",
+  "description": "Secure Password Vault & Mobile Device Automation Hub",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "password-vault",
+    "mobile-devices",
+    "encryption",
+    "aes-256-gcm",
+    "autofill",
+    "security"
+  ],
+  "author": "SecureVault",
+  "license": "MIT"
+}
